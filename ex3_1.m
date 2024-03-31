@@ -1,9 +1,20 @@
-mocap = load('mocapPoints3D.mat');
+global cam1;
+global cam2;
+global px1;
+global px2;
+global py1;
+global py2;
+
 cam1 = load('Parameters_V1.mat').Parameters;
 cam2 = load('Parameters_V2.mat').Parameters;
 
-[px1, py1] = projection(cam1, mocap);
-[px2, py2] = projection(cam2, mocap);
+[px1, py1] = projection(cam1);
+[px2, py2] = projection(cam2);
+p1 = [px1 py1];
+p2 = [px2 py2];
+
+save('projection1', 'p1');
+save('projection2', 'p2');
 
 figure(1);
 imagesc(imread('im1corrected.jpg'));
@@ -20,11 +31,12 @@ plot(px2, py2, 'ro', 'MarkerSize', 2, 'LineWidth', 2);
 hold off;
 
 
-function [points_x, points_y] = projection(cam, mocap)
+function [points_x, points_y] = projection(cam)
+    mocap = load('mocapPoints3D.mat');
     points_3d = mocap.pts3D;
     num_points = size(points_3d, 2);
-    points_x = zeros(num_points);
-    points_y = zeros(num_points);
+    points_x = zeros(num_points, 1);
+    points_y = zeros(num_points, 1);
     
     % Do image 1 pixel calculations
     for i = 1:num_points
