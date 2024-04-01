@@ -1,10 +1,4 @@
-global cam1;
-global cam2;
-global px1;
-global px2;
-global py1;
-global py2;
-
+clear;clc;clf;
 cam1 = load('Parameters_V1.mat').Parameters;
 cam2 = load('Parameters_V2.mat').Parameters;
 
