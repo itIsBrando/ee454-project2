@@ -22,7 +22,7 @@ out = triangulate(pts1, pts2);
 p1 = out(:, 1);
 p2 = out(:, 2);
 diff = (p1 - p2) / 1000; % convert mm to m
-fprintf('Heigh of the person is %f meters.\n', abs(diff(3)));
+fprintf('Height of the person is %f meters.\n', abs(diff(3)));
 
 % Center of camera
 pts1 = pickPoints(1, im1, 'Image 1 Click center of the camera');

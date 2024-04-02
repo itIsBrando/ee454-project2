@@ -46,6 +46,4 @@ normal_v = normal_v / norm(normal_v);
 
 
 d = -dot(p1, normal_v);
-normal_v
-d
 fprintf('Equation of the plane %fx + %fy + %fz + %f = 0\n', normal_v(1), normal_v(2), normal_v(3), d);
